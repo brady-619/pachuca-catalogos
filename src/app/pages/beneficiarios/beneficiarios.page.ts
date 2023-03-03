@@ -80,13 +80,19 @@ displayedColumns: string[] = ['idcatalogo', 'nombre', 'rfc', 'telefono','cuenta'
 
 
 
-  async editar(nombre: any, rfc: any, telefono: any, cuenta: any, banco: any) {
+  async editar(nombre: any) {
 
-    console.log("Diste click en editar", nombre, rfc, telefono, cuenta, banco)
+    console.log("Diste click en editar", nombre)
 
   }
 
 
+
+  async eliminar(nombre: any) {
+
+    console.log("Diste click en editar", nombre)
+
+  }
 
 
 }
