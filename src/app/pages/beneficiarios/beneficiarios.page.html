@@ -1,0 +1,105 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-item lines="none">
+      <ion-title class="ion-text-center">Beneficiarios</ion-title>
+      <ion-button [routerLink]="['/home']"> <ion-icon slot="icon-only" name="home"></ion-icon>
+      </ion-button>
+    </ion-item>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- <ion-grid fixed>
+    <ion-row *ngFor="let item of data">
+      <ion-col size="6">
+        <ion-card>
+
+          <ion-card-content>
+             <ion-item-group>
+
+
+              <ion-item-divider>
+
+                nombre: {{item.nombre}}
+              </ion-item-divider> <ion-item-divider>
+                <ion-button (click)="editar(item.nombre,item.rfc,item.telefono,item.cuenta,item.banco)" slot="start" expand="block" fill="clear" shape="round">
+                  editar
+                </ion-button>
+                <ion-button color="danger" slot="end" expand="block" fill="clear" shape="round">
+                  eliminar
+                </ion-button>
+
+
+              </ion-item-divider> 
+
+
+
+
+            </ion-item-group>
+        
+        
+        
+
+
+
+        
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>-->
+
+  <ion-grid >
+    <ion-row>
+      <ion-col size="8">
+        <ion-card *ngIf="data">
+          <ion-card-content>
+           
+
+
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+          <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
+        
+          <!-- Position Column -->
+          <ng-container matColumnDef="position">
+            <th mat-header-cell *matHeaderCellDef> No. </th>
+            <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+          </ng-container>
+        
+          <!-- Name Column -->
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+          </ng-container>
+        
+          <!-- Weight Column -->
+          <ng-container matColumnDef="weight">
+            <th mat-header-cell *matHeaderCellDef> Weight </th>
+            <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+          </ng-container>
+        
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="symbol">
+            <th mat-header-cell *matHeaderCellDef> Symbol </th>
+            <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+          </ng-container>
+        
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </ion-card-content>
+    </ion-card>
+
+      </ion-col>
+      
+    </ion-row>
+  </ion-grid>
+
+  
+  
+   
+  
+</ion-content>

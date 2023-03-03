@@ -1,0 +1,7 @@
+{
+  "name": "angular-catalogos",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
