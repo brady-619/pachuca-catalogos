@@ -9,8 +9,8 @@ import { AppRoutingModule } from './app-routing.module';
 import {HttpClientModule} from '@angular/common/http';
 
 import { MatTableModule } from '@angular/material/table';
-import { MatPaginatorModule } from '@angular/material/paginator';
-
+// import { MatPaginatorModule } from '@angular/material/paginator';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   declarations: [AppComponent],

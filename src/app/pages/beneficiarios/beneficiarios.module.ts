@@ -8,13 +8,14 @@ import { BeneficiariosPageRoutingModule } from './beneficiarios-routing.module';
 
 import { BeneficiariosPage } from './beneficiarios.page';
 import { MatTableModule } from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    BeneficiariosPageRoutingModule,MatTableModule 
+    BeneficiariosPageRoutingModule,MatTableModule ,MatPaginatorModule
   ],
   declarations: [BeneficiariosPage]
 })
