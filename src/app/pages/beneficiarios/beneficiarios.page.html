@@ -56,6 +56,10 @@
         <ion-card *ngIf="data">
           <ion-card-content>
 
+            <mat-form-field>
+              <mat-label>Filter</mat-label>
+              <input matInput (keyup)="applyFilter($event)" placeholder="Ex. nombre" #input>
+            </mat-form-field>
 
 
             <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">

@@ -6,6 +6,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Beneficiarios } from '../../interface/beneficiarios';
 
 
+
+
 export interface PeriodicElement {
   idcatalogo: number;
   nombre: string;
@@ -57,6 +59,8 @@ export class BeneficiariosPage implements OnInit {
       const ELEMENT_DATA: PeriodicElement[] = respuesta.data
       this.dataSource = ELEMENT_DATA;
 
+      this.dataSource = new MatTableDataSource(ELEMENT_DATA);
+
 
     });
 
@@ -64,7 +68,10 @@ export class BeneficiariosPage implements OnInit {
 
   }
 
-
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
 
 
 

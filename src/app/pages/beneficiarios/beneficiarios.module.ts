@@ -10,12 +10,15 @@ import { BeneficiariosPage } from './beneficiarios.page';
 import { MatTableModule } from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 
+
+import {MatInputModule} from '@angular/material/input';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    BeneficiariosPageRoutingModule,MatTableModule ,MatPaginatorModule
+    BeneficiariosPageRoutingModule,MatTableModule ,MatPaginatorModule,MatInputModule
   ],
   declarations: [BeneficiariosPage]
 })
