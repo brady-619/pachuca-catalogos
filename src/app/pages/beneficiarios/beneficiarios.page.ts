@@ -23,7 +23,7 @@ export interface PeriodicElement {
 export class BeneficiariosPage implements OnInit {
 
   data: any;
-  dataSource:any
+  dataSource: any
 
   // console.log("Diste click en editar", nombre, rfc, telefono, cuenta, banco)
 
@@ -40,20 +40,42 @@ export class BeneficiariosPage implements OnInit {
   //   { position: 10, nombre: 'Neon', rfc: '20.1797', telefono: 'Ne' , cuenta:'jse',banco:'bbva'},
   // ];
 
- 
 
-displayedColumns: string[] = ['idcatalogo', 'nombre', 'rfc', 'telefono','cuenta','banco','options'];
+
+  displayedColumns: string[] = ['idcatalogo', 'nombre', 'rfc', 'telefono', 'cuenta', 'banco', 'options'];
 
   constructor(private listadobeneficiario: GetListadoBeneficiariosService, private alertController: AlertController) { }
 
-  async ngOnInit() {
+
+
+
+  async ngAfterViewInit() {
 
     await this.listadobeneficiario.ListadoBeneficiario().then(async respuesta => {
       console.log(respuesta);
-
       this.data = respuesta.data
+      const ELEMENT_DATA: PeriodicElement[] = respuesta.data
+      this.dataSource = ELEMENT_DATA;
 
-    const ELEMENT_DATA: PeriodicElement[] =respuesta.data
+
+    });
+
+
+
+  }
+
+
+
+
+
+  async ngOnInit() {
+
+    // await this.listadobeneficiario.ListadoBeneficiario().then(async respuesta => {
+    //   console.log(respuesta);
+
+    //   this.data = respuesta.data
+
+    // const ELEMENT_DATA: PeriodicElement[] =respuesta.data
     //  [ 
     //       { idcatalogo: 1, nombre: 'Hydrogen', rfc: 'palabra', telefono: 'H', cuenta:'jse',banco:'bbva' },
     // { idcatalogo: 2, nombre: 'Helium', rfc: '4.0026', telefono: 'He' , cuenta:'jse',banco:'bbva'},
@@ -68,10 +90,10 @@ displayedColumns: string[] = ['idcatalogo', 'nombre', 'rfc', 'telefono','cuenta'
     //   ];
 
 
-      this.dataSource = ELEMENT_DATA;
-    
+    //   this.dataSource = ELEMENT_DATA;
 
-    })
+
+    // })
 
 
 
