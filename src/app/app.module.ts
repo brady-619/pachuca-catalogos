@@ -11,10 +11,15 @@ import {HttpClientModule} from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
 // import { MatPaginatorModule } from '@angular/material/paginator';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatInputModule} from '@angular/material/input';
+
+
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,HttpClientModule,MatTableModule,MatPaginatorModule],
+  imports: [BrowserAnimationsModule,BrowserModule, MatInputModule,IonicModule.forRoot(), AppRoutingModule,HttpClientModule,MatTableModule,MatPaginatorModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })

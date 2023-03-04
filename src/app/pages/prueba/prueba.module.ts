@@ -8,12 +8,20 @@ import { PruebaPageRoutingModule } from './prueba-routing.module';
 
 import { PruebaPage } from './prueba.page';
 
+import { MatTableModule } from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatInputModule} from '@angular/material/input';
+
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    IonicModule,
-    PruebaPageRoutingModule
+    IonicModule,MatPaginatorModule,MatTableModule,
+    PruebaPageRoutingModule,   
+    
+    MatInputModule,
+    
   ],
   declarations: [PruebaPage]
 })
