@@ -50,44 +50,64 @@ ion-row{
   
   .mat-column-idcatalogo {
     width: 10px;
-    border-left: 1px solid currentColor;
-    border-right: 1px solid currentColor;
+    // border-left: 1px solid currentColor;
+    // border-right: 1px solid currentColor;
+    border-top: 1px solid currentColor;
+    border-bottom: 1px solid currentColor;
     padding-right: 10px;
     text-align: center;
   }
   .mat-column-nombre {
     width: 10px;
-    border-right: 1px solid currentColor;
+    // border-left: 1px solid currentColor;
+    // border-right: 1px solid currentColor;
+    border-top: 1px solid currentColor;
+    border-bottom: 1px solid currentColor;
     padding-right: 10px;
     text-align: center;
   }
   .mat-column-rfc {
     width: 10px;
-    border-right: 1px solid currentColor;
+    // border-left: 1px solid currentColor;
+    // border-right: 1px solid currentColor;
+    border-top: 1px solid currentColor;
+    border-bottom: 1px solid currentColor;
     padding-right: 10px;
     text-align: center;
   }
   .mat-column-telefono {
     width: 10px;
-    border-right: 1px solid currentColor;
+    // border-left: 1px solid currentColor;
+    // border-right: 1px solid currentColor;
+    border-top: 1px solid currentColor;
+    border-bottom: 1px solid currentColor;
     padding-right: 10px;
     text-align: center;
   }
   .mat-column-cuenta {
     width: 10px;
-    border-right: 1px solid currentColor;
+    // border-left: 1px solid currentColor;
+    // border-right: 1px solid currentColor;
+    border-top: 1px solid currentColor;
+    border-bottom: 1px solid currentColor;
     padding-right: 10px;
     text-align: center;
   }
   .mat-column-banco {
     width: 10px;
-    border-right: 1px solid currentColor;
+    // border-left: 1px solid currentColor;
+    // border-right: 1px solid currentColor;
+    border-top: 1px solid currentColor;
+    border-bottom: 1px solid currentColor;
     padding-right: 10px;
     text-align: center;
   }
   .mat-column-options {
     width: 10px;
-    border-right: 1px solid currentColor;
+    // border-left: 1px solid currentColor;
+    // border-right: 1px solid currentColor;
+    border-top: 1px solid currentColor;
+    border-bottom: 1px solid currentColor;
     padding-right: 10px;
     text-align: center;
   }
@@ -112,3 +132,4 @@ ion-row{
   ion-item{
     --ion-item-background: transparent;
   }
+

@@ -132,4 +132,10 @@ export class BeneficiariosPage implements OnInit {
   }
 
 
+  async agregar(){
+    console.log("add");
+    
+  }
+
+
 }
