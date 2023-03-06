@@ -5,6 +5,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Beneficiarios } from '../../interface/beneficiarios';
 
+import {AfterViewInit, ViewChild} from '@angular/core';
 
 
 
@@ -48,7 +49,8 @@ export class BeneficiariosPage implements OnInit {
 
   constructor(private listadobeneficiario: GetListadoBeneficiariosService, private alertController: AlertController) { }
 
-
+  @ViewChild(MatPaginator)
+  paginator!: MatPaginator;
 
 
   async ngAfterViewInit() {
@@ -57,10 +59,16 @@ export class BeneficiariosPage implements OnInit {
       console.log(respuesta);
       this.data = respuesta.data
       const ELEMENT_DATA: PeriodicElement[] = respuesta.data
-      this.dataSource = ELEMENT_DATA;
-
       this.dataSource = new MatTableDataSource(ELEMENT_DATA);
+      // this.dataSource = ELEMENT_DATA;
 
+      // this.dataSource = new MatTableDataSource(ELEMENT_DATA);
+
+
+      console.log(this.dataSource)
+      this.dataSource.paginator = this.paginator;
+      console.log(this.dataSource.paginator)
+      console.log(this.paginator)
 
     });
 
