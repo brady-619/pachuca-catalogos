@@ -39,21 +39,60 @@ ion-row{
   }
 
 
-  // table {
-  //   width: 100%;
-  // }
+  table {
+    width: 100%;
+  }
   
 
   // .demo-table {
   //   width: 100%;
   // }
   
-  // .mat-column-idcatalogo {
-  //   width: 10px;
-  //   border-right: 1px solid currentColor;
-  //   padding-right: 10px;
-  //   text-align: center;
-  // }
+  .mat-column-idcatalogo {
+    width: 10px;
+    border-left: 1px solid currentColor;
+    border-right: 1px solid currentColor;
+    padding-right: 10px;
+    text-align: center;
+  }
+  .mat-column-nombre {
+    width: 10px;
+    border-right: 1px solid currentColor;
+    padding-right: 10px;
+    text-align: center;
+  }
+  .mat-column-rfc {
+    width: 10px;
+    border-right: 1px solid currentColor;
+    padding-right: 10px;
+    text-align: center;
+  }
+  .mat-column-telefono {
+    width: 10px;
+    border-right: 1px solid currentColor;
+    padding-right: 10px;
+    text-align: center;
+  }
+  .mat-column-cuenta {
+    width: 10px;
+    border-right: 1px solid currentColor;
+    padding-right: 10px;
+    text-align: center;
+  }
+  .mat-column-banco {
+    width: 10px;
+    border-right: 1px solid currentColor;
+    padding-right: 10px;
+    text-align: center;
+  }
+  .mat-column-options {
+    width: 10px;
+    border-right: 1px solid currentColor;
+    padding-right: 10px;
+    text-align: center;
+  }
+
+  
   
   // .mat-column-demo-name {
   //   padding-left: 16px;
@@ -70,3 +109,6 @@ ion-row{
   //   font-weight: bold;
   // }
   
+  ion-item{
+    --ion-item-background: transparent;
+  }

@@ -53,7 +53,7 @@
   <ion-grid>
     <ion-row>
       <ion-col size="8">
-        <ion-card >
+        <ion-card>
           <ion-card-content>
 
             <mat-form-field>
@@ -62,7 +62,7 @@
             </mat-form-field>
 
 
-            <table mat-table [dataSource]="dataSource"  *ngIf="data" class="mat-elevation-z8">
+            <table mat-table [dataSource]="dataSource" *ngIf="data" class="mat-elevation-z8">
 
               <!--- Note that these columns can be defined in any order.
                 The actual rendered columns are set as a property on the row definition" -->
@@ -111,7 +111,9 @@
                     data-bs-target="#infobrandsModal">Info</button>
 
                 <button routerLink="/productos" (click)="setMarca(row._id)" class="btn-products">Productos</button> -->
-                  <ion-item>
+                  <ion-item lines="none">
+
+
 
                     <ion-button (click)="editar(element.nombre)" expand="block" fill="clear" shape="round">
                       <ion-icon color="primary" name="create-outline"></ion-icon>
@@ -121,8 +123,8 @@
                     <ion-button (click)="eliminar(element.nombre)" expand="block" fill="clear" shape="round">
                       <ion-icon color="danger" name="trash-outline"></ion-icon>
                     </ion-button>
-
                   </ion-item>
+
 
                 </td>
               </ng-container>
@@ -132,12 +134,9 @@
             </table>
 
 
-            <mat-paginator 
-            [pageSize]="5"
-            showFirstLastButtons
-            aria-label="Select page of periodic elements">
-  </mat-paginator>
-  
+            <mat-paginator [pageSize]="5" showFirstLastButtons aria-label="Select page of periodic elements">
+            </mat-paginator>
+
 
           </ion-card-content>
         </ion-card>
