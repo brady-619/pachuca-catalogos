@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { GetListadoBeneficiariosService } from '../../services/get-listado-beneficiarios.service';
+import { InsertBeneficiarioService } from '../../services/insert-beneficiario.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Beneficiarios } from '../../interface/beneficiarios';
 
 import {AfterViewInit, ViewChild} from '@angular/core';
+import { Router } from '@angular/router';
 
 
 
@@ -47,7 +49,7 @@ export class BeneficiariosPage implements OnInit {
 
   displayedColumns: string[] = ['idcatalogo', 'nombre', 'rfc', 'telefono', 'cuenta', 'banco', 'options'];
 
-  constructor(private listadobeneficiario: GetListadoBeneficiariosService, private alertController: AlertController) { }
+  constructor(private router: Router,private insertBeneficiario: InsertBeneficiarioService, public alertCtrl: AlertController,private listadobeneficiario: GetListadoBeneficiariosService, private alertController: AlertController) { }
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
@@ -121,6 +123,21 @@ export class BeneficiariosPage implements OnInit {
 
     console.log("Diste click en editar", nombre)
 
+    localStorage.setItem("nombre_beneficiario",nombre)
+
+
+
+
+/*obteniendo store para inicializar*/
+
+
+
+
+
+
+      this.router.navigate(['editar-beneficiarios']);
+
+
   }
 
 
@@ -134,6 +151,137 @@ export class BeneficiariosPage implements OnInit {
 
   async agregar(){
     console.log("add");
+
+      this.router.navigate(['agregar-beneficiarios']);
+
+
+
+
+
+
+    // const alert = await this.alertController.create({
+    //   header: 'Alta de beneficiario',
+    //   // buttons: ['Guardar','Cancelar'],
+    //   buttons: [
+    //     {
+    //         text: 'Cancel',
+    //         role: 'cancel',
+    //         cssClass: 'secondary',
+    //         handler: () => {
+    //             console.log('Confirm Cancel');
+    //         }
+    //     }, 
+    //     {
+    //         text: 'Ok',
+    //         handler: async (alertData) => { //takes the data 
+    //           // console.log("SIM vendida");
+    //             console.log("El valor de venta enviado sera",
+    //             alertData.nombre, 
+    //             alertData.rfc, 
+    //             alertData.telefono, 
+    //             alertData.cuenta, 
+    //             alertData.banco
+    //             );
+
+    //             // let params = {
+    //             //   //  data:[{nombre:this.data.nombre , apellido: this.data.apellido, icc:this.data.icc}
+    //             //  [{ nombre: alertData.nombre, rfc: alertData.rfc,telefono: alertData.telefono,cuenta: alertData.cuenta,banco: alertData.banco}]
+    //             // }
+
+    //             let params = {
+    //               data: [{  nombre: alertData.nombre, rfc: alertData.rfc,telefono: alertData.telefono,cuenta: alertData.cuenta,banco: alertData.banco
+    //                }] }
+
+
+
+    //             await this.insertBeneficiario.InsertBeneficiario(params).then(async respuesta => {
+    //               // console.log(data2)
+    //               console.log("paso chido", respuesta)
+                
+                
+
+    //               if (respuesta.status === "000") {
+    //                 // alert("Carga realizada con éxito.");
+    //                 const alert = await this.alertCtrl.create({  
+    //                   header: 'Registro creado con éxito.',  
+    //                   // subHeader: 'SubTitle',  
+    //                   // message: 'This is an alert message',  
+    //                   buttons: ['OK']  
+    //                 });  
+    //                 await alert.present();  
+
+    //                 await this.ngAfterViewInit();
+    //               }
+    //               else {
+    //                 // alert("Carga realizada con éxito.");
+    //                 const alert = await this.alertCtrl.create({  
+    //                   header: 'Error al registrar.',  
+    //                   // subHeader: 'SubTitle',  
+    //                   // message: 'This is an alert message',  
+    //                   buttons: ['OK']  
+    //                 });  
+    //                 await alert.present();  
+
+    //                 // this.ngOnInit();
+    //               }
+                
+                
+                
+                
+    //             });
+
+
+
+
+
+           
+                
+            
+                
+
+
+    //         }
+    //     }
+    // ],
+    //   inputs: [
+    //     {
+    //       type: 'text',
+    //       name: 'nombre',
+    //       placeholder: 'nombre',
+          
+    //     },
+    //     {
+    //       type: 'text',
+    //       name: 'rfc',
+    //       placeholder: 'rfc',
+    //     },
+    //     {
+    //       type: 'text',
+    //       name: 'telefono',
+    //       placeholder: 'telefono',
+    //     },
+    //     {
+    //       type: 'text',
+    //       name: 'cuenta',
+    //       placeholder: 'cuenta',
+    //     },
+    //     {
+    //       type: 'text',
+    //       name: 'banco',
+    //       placeholder: 'banco',
+    //     }
+    //   ],
+    // });
+
+
+
+
+    // await alert.present();
+
+
+
+
+
     
   }
 

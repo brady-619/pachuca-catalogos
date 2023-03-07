@@ -14,10 +14,20 @@ const routes: Routes = [
   {
     path: 'beneficiarios',
     loadChildren: () => import('./pages/beneficiarios/beneficiarios.module').then( m => m.BeneficiariosPageModule)
-  },  {
+  },
+  {
     path: 'prueba',
     loadChildren: () => import('./pages/prueba/prueba.module').then( m => m.PruebaPageModule)
   },
+  {
+    path: 'agregar-beneficiarios',
+    loadChildren: () => import('./pages/agregar-beneficiarios/agregar-beneficiarios.module').then( m => m.AgregarBeneficiariosPageModule)
+  },
+  {
+    path: 'editar-beneficiarios',
+    loadChildren: () => import('./pages/editar-beneficiarios/editar-beneficiarios.module').then( m => m.EditarBeneficiariosPageModule)
+  },
+
 
 ];
 

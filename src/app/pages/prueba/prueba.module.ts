@@ -13,10 +13,12 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatInputModule} from '@angular/material/input';
 
 
+import {MatSortModule} from '@angular/material/sort';
+
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule,
+    FormsModule,MatSortModule,
     IonicModule,MatPaginatorModule,MatTableModule,
     PruebaPageRoutingModule,   
     

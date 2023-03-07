@@ -6,6 +6,9 @@ import {MatTableDataSource} from '@angular/material/table';
 import {AfterViewInit, ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 
+import {LiveAnnouncer} from '@angular/cdk/a11y';
+import {MatSort, Sort} from '@angular/material/sort';
+
 
 export interface PeriodicElement {
   name: string;
@@ -48,11 +51,17 @@ export class PruebaPage implements OnInit {
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
 
+  @ViewChild(MatSort)
+  sort!: MatSort;
+
  async ngAfterViewInit() {
   console.log(this.dataSource)
     this.dataSource.paginator = this.paginator;
     console.log(this.dataSource.paginator)
     console.log(this.paginator)
+
+
+    this.dataSource.sort = this.sort;
   }
 
   applyFilter(event: Event) {
@@ -61,9 +70,21 @@ export class PruebaPage implements OnInit {
   }
 
 
-  constructor() { }
+  constructor(private _liveAnnouncer: LiveAnnouncer) { }
 
   ngOnInit() {
+  }
+
+  announceSortChange(sortState: Sort) {
+    // This example uses English messages. If your application supports
+    // multiple language, you would internationalize these strings.
+    // Furthermore, you can customize the message to add additional
+    // details about the values being sorted.
+    if (sortState.direction) {
+      this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
+    } else {
+      this._liveAnnouncer.announce('Sorting cleared');
+    }
   }
 
 }

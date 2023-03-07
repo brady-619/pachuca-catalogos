@@ -1,0 +1,94 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-item lines="none">
+      <ion-title class="ion-text-center">Agregar Beneficiarios</ion-title>
+      <ion-button [routerLink]="['/beneficiarios']"> <ion-icon slot="icon-only" name="return-up-back"></ion-icon>
+      </ion-button>
+    </ion-item>
+
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="6">
+        <ion-card>
+
+
+          <ion-card-content>
+
+            <form [formGroup]="beneficiarioForm" (ngSubmit)="guardar()" class="form" action="">
+
+              <ion-item-group>
+                <ion-item-divider>
+                  <ion-icon name="person-outline" color="success"></ion-icon>
+                  <ion-label>Nombre:</ion-label>
+                  <ion-input required formControlName="nombre" type="text" placeholder="Ingresa tu nombre"></ion-input>
+                </ion-item-divider>
+
+                <ion-item-divider>
+                  <ion-icon name="qr-code-outline" color="primary"></ion-icon>
+                  <ion-label>RFC:</ion-label>
+                  <ion-input required formControlName="rfc" placeholder="Ingresa tu RFC"></ion-input>
+                </ion-item-divider>
+
+                <ion-item-divider>
+                  <ion-icon name="call-outline" color="primary"></ion-icon>
+                  <ion-label>Telefono:</ion-label>
+                  <ion-input  required formControlName="telefono" placeholder="Ingresa tu Telefono"></ion-input>
+                </ion-item-divider>
+
+                <ion-item-divider>
+                  <ion-icon name="card-outline" color="primary"></ion-icon>
+                  <ion-label>Cuenta:</ion-label>
+                  <ion-input required formControlName="cuenta" placeholder="Ingresa tu Cuenta"></ion-input>
+                </ion-item-divider>
+
+                <ion-item-divider>
+                  <ion-icon name="business-outline" color="primary"></ion-icon>
+                  <!-- <ion-label>Banco:</ion-label>
+                  <ion-input required formControlName="banco" placeholder="Ingresa tu Banco"></ion-input> -->
+
+                  <ion-list>
+                    <ion-item lines="none">
+                      <ion-select placeholder="Selecciona un banco" required formControlName="banco">
+                        <ion-select-option value="bbva">BBVA</ion-select-option>
+                        <ion-select-option value="hsbc">HSBC</ion-select-option>
+                        <ion-select-option value="citibanamex">CITI BANAMEX</ion-select-option>
+                      </ion-select>
+                    </ion-item>
+                  </ion-list>
+
+                </ion-item-divider>
+
+                <!-- telefono cuenta banco -->
+                
+
+
+                <!-- <ion-item-divider *ngIf="on == true">
+                  <ion-spinner color="primary" name="circular"></ion-spinner>
+                </ion-item-divider> -->
+
+              </ion-item-group>
+
+
+              <ion-button [disabled]="!beneficiarioForm.valid" type="submit" expand="block" shape="round">
+                guardar
+              </ion-button>
+
+            </form>
+          </ion-card-content>
+        </ion-card>
+
+
+
+
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
