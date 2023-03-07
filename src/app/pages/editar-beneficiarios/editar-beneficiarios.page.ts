@@ -26,7 +26,8 @@ export class EditarBeneficiariosPage implements OnInit {
 
   data:any;
 
-  ngOnInit() {
+  async ngOnInit() {
+    
   }
 
 
@@ -48,9 +49,6 @@ export class EditarBeneficiariosPage implements OnInit {
        console.log(respuesta);
 
        
-
-
-
 
 
 
