@@ -8,6 +8,7 @@ import {MatPaginator} from '@angular/material/paginator';
 
 import {LiveAnnouncer} from '@angular/cdk/a11y';
 import {MatSort, Sort} from '@angular/material/sort';
+import { FormControl, Validators } from '@angular/forms';
 
 
 export interface PeriodicElement {
@@ -43,6 +44,8 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./prueba.page.scss'],
 })
 export class PruebaPage implements OnInit {
+
+  emailFormControl = new FormControl('', [Validators.required, Validators.email]);
 
 
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+// import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
@@ -14,11 +14,14 @@ import {MatInputModule} from '@angular/material/input';
 
 
 import {MatSortModule} from '@angular/material/sort';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule,MatSortModule,
+    FormsModule,MatSortModule, ReactiveFormsModule,MatFormFieldModule,
     IonicModule,MatPaginatorModule,MatTableModule,
     PruebaPageRoutingModule,   
     
