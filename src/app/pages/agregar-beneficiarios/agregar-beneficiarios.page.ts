@@ -20,7 +20,7 @@ export class AgregarBeneficiariosPage implements OnInit {
     telefono: new FormControl('', [Validators.minLength(10), Validators.pattern(/^-?(0|[1-9]\d*)?$/)]),
     cuenta: new FormControl('', Validators.minLength(10)),
     banco: new FormControl('')
-  });
+  },{updateOn:'submit'});
 
   ngOnInit() {
   }

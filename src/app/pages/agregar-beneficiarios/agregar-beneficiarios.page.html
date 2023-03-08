@@ -20,7 +20,13 @@
 
           <ion-card-content>
 
-            <form [formGroup]="beneficiarioForm" (ngSubmit)="guardar()" class="form" action="">
+            <form [formGroup]="beneficiarioForm" #localForm="ngForm" (ngSubmit)="guardar()" class="form" action="">
+
+            {{localForm.submitted}}
+
+
+
+
 
               <ion-item-group>
                 <ion-item-divider>

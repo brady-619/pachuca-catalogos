@@ -15,6 +15,7 @@ import {MatInputModule} from '@angular/material/input';
 
 
 import {MatSortModule} from '@angular/material/sort';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 
 
@@ -22,7 +23,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserAnimationsModule,BrowserModule, MatInputModule,IonicModule.forRoot(), AppRoutingModule,HttpClientModule,MatTableModule,MatPaginatorModule,MatSortModule],
+  imports: [BrowserAnimationsModule,BrowserModule,MatFormFieldModule, MatInputModule,IonicModule.forRoot(), AppRoutingModule,HttpClientModule,MatTableModule,MatPaginatorModule,MatSortModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
