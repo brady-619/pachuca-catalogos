@@ -9,6 +9,9 @@ import { Beneficiarios } from '../../interface/beneficiarios';
 import {AfterViewInit, ViewChild} from '@angular/core';
 import { Router } from '@angular/router';
 
+import {LiveAnnouncer} from '@angular/cdk/a11y';
+import {MatSort, Sort} from '@angular/material/sort';
+
 
 
 export interface PeriodicElement {
@@ -28,7 +31,7 @@ export interface PeriodicElement {
 export class BeneficiariosPage implements OnInit {
 
   data: any;
-  dataSource: any
+  dataSource = new MatTableDataSource < PeriodicElement > ();
 
   // console.log("Diste click en editar", nombre, rfc, telefono, cuenta, banco)
 
@@ -49,30 +52,19 @@ export class BeneficiariosPage implements OnInit {
 
   displayedColumns: string[] = ['idcatalogo', 'nombre', 'rfc', 'telefono', 'cuenta', 'banco', 'options'];
 
-  constructor(private router: Router,private insertBeneficiario: InsertBeneficiarioService, public alertCtrl: AlertController,private listadobeneficiario: GetListadoBeneficiariosService, private alertController: AlertController) { }
+  constructor(private _liveAnnouncer: LiveAnnouncer,private router: Router,private insertBeneficiario: InsertBeneficiarioService, public alertCtrl: AlertController,private listadobeneficiario: GetListadoBeneficiariosService, private alertController: AlertController) { }
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
 
-
-  async ngAfterViewInit() {
-
-    await this.listadobeneficiario.ListadoBeneficiario().then(async respuesta => {
-      console.log(respuesta);
-      this.data = respuesta.data
-      const ELEMENT_DATA: PeriodicElement[] = respuesta.data
-      this.dataSource = new MatTableDataSource(ELEMENT_DATA);
-      // this.dataSource = ELEMENT_DATA;
-
-      // this.dataSource = new MatTableDataSource(ELEMENT_DATA);
+  @ViewChild(MatSort, {static: false}) set content(sort: MatSort) {
+    this.dataSource.sort = sort;
+  }
 
 
-      console.log(this.dataSource)
-      this.dataSource.paginator = this.paginator;
-      console.log(this.dataSource.paginator)
-      console.log(this.paginator)
+  ngAfterViewInit() {
 
-    });
+    
 
 
 
@@ -85,7 +77,33 @@ export class BeneficiariosPage implements OnInit {
 
 
 
-  async ngOnInit() {
+  ngOnInit() {
+
+
+   this.listadobeneficiario.ListadoBeneficiario().then(async respuesta => {
+      console.log(respuesta);
+      this.data = respuesta.data
+      let ELEMENT_DATA: PeriodicElement[] = respuesta.data
+      this.dataSource = new MatTableDataSource(ELEMENT_DATA);
+      // this.dataSource = ELEMENT_DATA;
+
+      // this.dataSource = new MatTableDataSource(ELEMENT_DATA);
+
+
+      console.log(this.dataSource)
+      this.dataSource.paginator = this.paginator;
+      // console.log(this.dataSource.paginator)
+      // console.log(this.paginator)
+
+
+
+
+
+
+    });
+
+
+
 
     // await this.listadobeneficiario.ListadoBeneficiario().then(async respuesta => {
     //   console.log(respuesta);
@@ -114,6 +132,19 @@ export class BeneficiariosPage implements OnInit {
 
 
 
+  }
+
+  announceSortChange(sortState: Sort) {
+    console.log("mueve", sortState)
+    // This example uses English messages. If your application supports
+    // multiple language, you would internationalize these strings.
+    // Furthermore, you can customize the message to add additional
+    // details about the values being sorted.
+    if (sortState.direction) {
+      this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
+    } else {
+      this._liveAnnouncer.announce('Sorting cleared');
+    }
   }
 
 

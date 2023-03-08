@@ -57,11 +57,13 @@ export class PruebaPage implements OnInit {
  async ngAfterViewInit() {
   console.log(this.dataSource)
     this.dataSource.paginator = this.paginator;
-    console.log(this.dataSource.paginator)
-    console.log(this.paginator)
+    // console.log(this.dataSource.paginator)
+    // console.log(this.paginator)
 
 
     this.dataSource.sort = this.sort;
+    console.log(this.dataSource.sort)
+    console.log(this.sort)
   }
 
   applyFilter(event: Event) {
@@ -76,6 +78,7 @@ export class PruebaPage implements OnInit {
   }
 
   announceSortChange(sortState: Sort) {
+    console.log("mueve", sortState)
     // This example uses English messages. If your application supports
     // multiple language, you would internationalize these strings.
     // Furthermore, you can customize the message to add additional
