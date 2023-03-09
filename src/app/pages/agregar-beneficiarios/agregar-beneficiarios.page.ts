@@ -11,6 +11,11 @@ import { InsertBeneficiarioService } from '../../services/insert-beneficiario.se
 })
 export class AgregarBeneficiariosPage implements OnInit {
  
+  nombre:any;
+  rfc:any;
+  telefono:any;
+  cuenta:any;
+  banco:any;
 
   constructor(private router: Router,private insertar: InsertBeneficiarioService, private alertController: AlertController) { }
 
@@ -20,9 +25,10 @@ export class AgregarBeneficiariosPage implements OnInit {
     telefono: new FormControl('', [Validators.minLength(10), Validators.pattern(/^-?(0|[1-9]\d*)?$/)]),
     cuenta: new FormControl('', Validators.minLength(10)),
     banco: new FormControl('')
-  },{updateOn:'submit'});
+  },);
 
   ngOnInit() {
+    console.log(this.nombre)
   }
   get registerFormControl() {
     return this.beneficiarioForm.controls;
@@ -81,6 +87,14 @@ export class AgregarBeneficiariosPage implements OnInit {
 
 
     })
+
+  }
+
+
+
+  save(nombre:any,rfc:any, telefono:any, cuenta:any,banco:any){
+    console.log(nombre, rfc ,telefono, cuenta, banco);
+    
 
   }
 

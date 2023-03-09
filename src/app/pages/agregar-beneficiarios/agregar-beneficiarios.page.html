@@ -16,13 +16,120 @@
     <ion-row>
       <ion-col size="6">
         <ion-card>
+          <ion-card-content>
+
+            <ion-item-group>
+              <ion-item-divider>
+                Nombre:
+                <ion-input maxlength="30" [(ngModel)]="nombre" type="text" placeholder="Ingresa tu nombre"></ion-input>
+              </ion-item-divider>
+              <div *ngIf="nombre!=undefined && nombre.length<=4"><ion-label color="danger">*Debe contener al menos 5
+                  digitos</ion-label></div>
+
+
+
+              <ion-item-divider>
+                RFC:
+                <ion-input maxlength="13" [(ngModel)]="rfc" type="text" placeholder="Ingresa tu nombre"></ion-input>
+              </ion-item-divider>
+              <div *ngIf="rfc!=undefined && rfc.length<=12"><ion-label color="danger">*Debe contener al menos 13
+                  digitos</ion-label></div>
+
+
+
+
+              <ion-item-divider>
+                Telefono:
+                <ion-input [(ngModel)]="telefono" type="tel " maxlength="15"
+                  placeholder="Ingresa tu telefono"></ion-input>
+              </ion-item-divider>
+              <div *ngIf="telefono!=undefined && telefono.length<=9"><ion-label color="danger">*Debe contener al menos
+                  10 digitos</ion-label></div>
+
+
+
+              <ion-item-divider>
+                Cuenta:
+                <ion-input [(ngModel)]="cuenta" type="tel " maxlength="20" placeholder="Ingresa tu cuenta"></ion-input>
+              </ion-item-divider>
+              <div *ngIf="cuenta!=undefined && cuenta.length<=4"><ion-label color="danger">*Debe contener al menos 5
+                  digitos</ion-label></div>
+
+
+
+              <ion-list>
+                <ion-item lines="none">
+                  <ion-select placeholder="Selecciona un banco" [(ngModel)]="banco">
+                    <ion-select-option value="bbva">BBVA</ion-select-option>
+                    <ion-select-option value="hsbc">HSBC</ion-select-option>
+                    <ion-select-option value="citibanamex">CITI BANAMEX</ion-select-option>
+                  </ion-select>
+                </ion-item>
+              </ion-list>
+              <!-- <div *ngIf="banco!=undefined && banco"><ion-label color="danger">*Debe contener al menos 3
+                  digitos</ion-label></div> -->
+
+                  <!-- {{banco}} -->
+                
+
+
+
+              <div *ngIf="nombre!=undefined && nombre.length>=5 &&
+                rfc!=undefined && rfc.length>=12 &&
+                telefono!=undefined && telefono.length>=10 &&
+                cuenta!=undefined && cuenta.length>=5 &&
+                banco!=undefined "
+                >
+                <ion-button (click)="save(nombre, rfc, telefono, cuenta, banco)" expand="block" shape="round">
+                  Guardar
+                </ion-button>
+              </div>
+
+
+            </ion-item-group>
+
+
+
+
+
+          </ion-card-content>
+        </ion-card>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- 
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="6">
+        <ion-card>
 
 
           <ion-card-content>
 
             <form [formGroup]="beneficiarioForm" #localForm="ngForm" (ngSubmit)="guardar()" class="form" action="">
 
-            {{localForm.submitted}}
 
 
 
@@ -33,8 +140,6 @@
                   <ion-icon name="person-outline" color="success"></ion-icon>
                   <ion-label>Nombre:</ion-label>
                   <ion-input  required formControlName="nombre" type="text" placeholder="Ingresa tu nombre"></ion-input>
-                
-                
                 
                 </ion-item-divider>
 
@@ -58,8 +163,6 @@
 
                 <ion-item-divider>
                   <ion-icon name="business-outline" color="primary"></ion-icon>
-                  <!-- <ion-label>Banco:</ion-label>
-                  <ion-input required formControlName="banco" placeholder="Ingresa tu Banco"></ion-input> -->
 
                   <ion-list>
                     <ion-item lines="none">
@@ -73,13 +176,7 @@
 
                 </ion-item-divider>
 
-                <!-- telefono cuenta banco -->
-                
 
-
-                <!-- <ion-item-divider *ngIf="on == true">
-                  <ion-spinner color="primary" name="circular"></ion-spinner>
-                </ion-item-divider> -->
 
               </ion-item-group>
 
@@ -98,6 +195,6 @@
       </ion-col>
 
     </ion-row>
-  </ion-grid>
+  </ion-grid> -->
 
 </ion-content>
