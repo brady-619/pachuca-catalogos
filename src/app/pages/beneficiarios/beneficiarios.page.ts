@@ -62,9 +62,39 @@ export class BeneficiariosPage implements OnInit {
   }
 
 
+  ionViewWillEnter(){
+    console.log("c llama");
+    
+    // window.location.reload();
+  }
+
+
   ngAfterViewInit() {
 
     
+   this.listadobeneficiario.ListadoBeneficiario().then(async respuesta => {
+    console.log("bna",respuesta);
+    this.data = respuesta.data
+    let ELEMENT_DATA: PeriodicElement[] = respuesta.data
+    this.dataSource = new MatTableDataSource(ELEMENT_DATA);
+    // this.dataSource = ELEMENT_DATA;
+
+    // this.dataSource = new MatTableDataSource(ELEMENT_DATA);
+
+
+    console.log(this.dataSource)
+    this.dataSource.paginator = this.paginator;
+    // console.log(this.dataSource.paginator)
+    // console.log(this.paginator)
+
+
+
+
+
+
+  });
+
+
 
 
 
@@ -78,29 +108,6 @@ export class BeneficiariosPage implements OnInit {
 
 
   ngOnInit() {
-
-
-   this.listadobeneficiario.ListadoBeneficiario().then(async respuesta => {
-      console.log(respuesta);
-      this.data = respuesta.data
-      let ELEMENT_DATA: PeriodicElement[] = respuesta.data
-      this.dataSource = new MatTableDataSource(ELEMENT_DATA);
-      // this.dataSource = ELEMENT_DATA;
-
-      // this.dataSource = new MatTableDataSource(ELEMENT_DATA);
-
-
-      console.log(this.dataSource)
-      this.dataSource.paginator = this.paginator;
-      // console.log(this.dataSource.paginator)
-      // console.log(this.paginator)
-
-
-
-
-
-
-    });
 
 
 

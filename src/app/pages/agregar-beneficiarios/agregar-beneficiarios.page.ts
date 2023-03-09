@@ -28,7 +28,7 @@ export class AgregarBeneficiariosPage implements OnInit {
   },);
 
   ngOnInit() {
-    console.log(this.nombre)
+    // console.log(this.nombre)
   }
   get registerFormControl() {
     return this.beneficiarioForm.controls;
@@ -92,8 +92,77 @@ export class AgregarBeneficiariosPage implements OnInit {
 
 
 
-  save(nombre:any,rfc:any, telefono:any, cuenta:any,banco:any){
+ async save(nombre:any,rfc:any, telefono:any, cuenta:any,banco:any){
     console.log(nombre, rfc ,telefono, cuenta, banco);
+
+
+
+
+    let data2 = {
+      //    data:[{nombre: nombre , dueno: dueno, apellido: apellido,telefono1: tel1, telefono2:tel2, domicilio:domicilio, email:email, giro,vendedor: this.nombre_global, latitud: this.latitud, longitud: this.longitud }]
+      data: [{nombre: nombre, rfc: rfc, telefono: telefono, cuenta: cuenta, banco:banco  }]
+    }
+
+    console.log(data2)
+
+
+    await this.insertar.InsertBeneficiario(data2).then(async respuesta => {
+      console.log(respuesta);
+
+      if (respuesta.status = "000") {
+        const alert = await this.alertController.create({
+          header: 'Alert',
+          subHeader: 'Tu registro ha sido exitoso',
+          // message: 'This is an alert!',
+          buttons: ['OK'],
+        });
+
+      
+  await alert.present();
+        
+    // window.location.reload();
+    setTimeout(function(){location.reload()}, 3000);
+
+
+
+        let data2 = {
+          //    data:[{nombre: nombre , dueno: dueno, apellido: apellido,telefono1: tel1, telefono2:tel2, domicilio:domicilio, email:email, giro,vendedor: this.nombre_global, latitud: this.latitud, longitud: this.longitud }]
+          data: [{nombre: "", rfc: "", telefono: "", cuenta: "", banco:""  }]
+        }
+
+        // this.beneficiarioForm = new FormGroup({
+        //   nombre: new FormControl('', [Validators.required, Validators.minLength(1)]),
+        //   rfc: new FormControl(''),
+        //   telefono: new FormControl(''),
+        //   cuenta: new FormControl(''),
+        //   banco: new FormControl('')
+        // });
+
+        
+      // this.router.navigate(['beneficiarios']);
+
+
+
+
+      } else {
+        const alert = await this.alertController.create({
+          header: 'Alert',
+          subHeader: 'Error al cargar tu registro',
+          // message: 'This is an alert!',
+          buttons: ['OK'],
+        });
+
+        await alert.present();
+
+      }
+
+
+    })
+
+
+
+
+
     
 
   }
